@@ -15,72 +15,83 @@
         
         .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, #ffffff 0%, #fdfcf0 100%); z-index: -1; }
         
-        section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; box-sizing: border-box; }
+        section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 15px; box-sizing: border-box; }
         
-        /* Scene 1: Timer */
-        .timer-display { display: flex; gap: 15px; margin: 20px 0; }
-        .time-box { background: white; padding: 15px; border-radius: 12px; min-width: 70px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .time-num { display: block; font-size: 1.8rem; font-weight: bold; color: var(--gold); }
-        .time-label { font-size: 0.7rem; text-transform: uppercase; color: #999; }
+        /* FIX: Responsive Countdown */
+        .timer-display { 
+            display: flex; 
+            flex-wrap: wrap; /* Allows boxes to move to next line if no space */
+            justify-content: center;
+            gap: 10px; 
+            margin: 20px 0; 
+            width: 100%;
+        }
+        .time-box { 
+            background: white; 
+            padding: 10px; 
+            border-radius: 12px; 
+            width: 70px; /* Fixed width to keep them uniform */
+            border: 1px solid #eee; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        }
+        .time-num { display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold); }
+        .time-label { font-size: 0.6rem; text-transform: uppercase; color: #999; }
 
-        /* Scene 2 & 3: Frames & Collage */
-        .photo-frame { width: 260px; height: 260px; border: 4px solid var(--gold); border-radius: 50%; margin-bottom: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: white; }
+        /* Frames & Collage */
+        .photo-frame { width: 240px; height: 240px; border: 4px solid var(--gold); border-radius: 50%; margin-bottom: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: white; }
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
         
-        .collage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 360px; margin-bottom: 25px; }
-        .collage-grid img { width: 100%; height: 140px; object-fit: cover; border: 2px solid var(--gold); border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .collage-grid img:first-child { grid-column: span 2; height: 200px; }
+        .collage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 340px; margin-bottom: 25px; }
+        .collage-grid img { width: 100%; height: 120px; object-fit: cover; border: 2px solid var(--gold); border-radius: 12px; }
+        .collage-grid img:first-child { grid-column: span 2; height: 180px; }
 
-        /* Scene 4: Ramayan */
-        .ramayan-frame { width: 100%; max-width: 400px; border: 2px solid var(--gold); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .ramayan-frame { width: 100%; max-width: 360px; border: 2px solid var(--gold); border-radius: 15px; overflow: hidden; }
         .ramayan-frame img { width: 100%; display: block; }
 
-        /* Scene 5: Schedule Card */
-        .schedule-board { background: white; border: 1px solid rgba(184, 134, 11, 0.2); padding: 30px; border-radius: 20px; max-width: 450px; width: 100%; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
-        .day-title { color: var(--gold); font-family: 'Cinzel Decorative', serif; margin-top: 25px; border-bottom: 1px solid #f0f0f0; display: block; padding-bottom: 5px; font-size: 1.1rem; }
-        .event { display: flex; justify-content: space-between; margin: 12px 0; font-size: 0.9rem; font-weight: 500; }
+        /* Schedule Card */
+        .schedule-board { background: white; border: 1px solid rgba(184, 134, 11, 0.2); padding: 25px; border-radius: 20px; max-width: 400px; width: 100%; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+        .day-title { color: var(--gold); font-family: 'Cinzel Decorative', serif; margin-top: 20px; border-bottom: 1px solid #f0f0f0; display: block; padding-bottom: 5px; font-size: 1rem; }
+        .event { display: flex; justify-content: space-between; margin: 10px 0; font-size: 0.85rem; font-weight: 500; }
 
-        /* Typography */
-        h1 { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 1.8rem; margin: 10px 0; }
-        .handwritten { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--gold); }
-        .voiceover-text { font-style: italic; max-width: 500px; color: #666; line-height: 1.6; }
+        h1 { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 1.6rem; margin: 10px 0; }
+        .handwritten { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--gold); }
+        .voiceover-text { font-style: italic; max-width: 450px; color: #666; line-height: 1.5; font-size: 0.95rem; }
 
-        /* Inputs & Buttons */
-        .btn-common { display: inline-block; padding: 14px 28px; font-weight: bold; border-radius: 50px; text-decoration: none; transition: 0.3s; margin: 10px 5px; border: none; cursor: pointer; font-family: 'Montserrat'; }
-        .btn-calendar { background: #fff; color: #666; border: 1px solid #ddd; font-size: 0.75rem; }
-        .btn-map { background: var(--gold); color: white; width: 80%; margin-top: 20px; text-align: center; }
-        .whatsapp-btn { background: #25D366; color: white; width: 85%; font-size: 1rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
-        .guest-input { width: 85%; padding: 15px; margin: 20px 0 10px 0; border-radius: 12px; border: 1px solid #ddd; text-align: center; font-size: 1.1rem; }
+        .btn-common { display: inline-block; padding: 12px 24px; font-weight: bold; border-radius: 50px; text-decoration: none; transition: 0.3s; margin: 10px 5px; border: none; cursor: pointer; font-family: 'Montserrat'; text-align: center; }
+        .btn-calendar { background: #fff; color: #666; border: 1px solid #ddd; font-size: 0.7rem; }
+        .btn-map { background: var(--gold); color: white; width: 90%; margin-top: 15px; }
+        .whatsapp-btn { background: #25D366; color: white; width: 90%; font-size: 1rem; }
+        .guest-input { width: 85%; padding: 15px; margin: 15px 0; border-radius: 12px; border: 1px solid #ddd; text-align: center; font-size: 1.1rem; }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body onclick="playAudio()">
+<body>
 
-    <audio id="inviteMusic" loop>
+    <audio id="inviteMusic" loop pre-load="auto">
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
     <div class="bg-glow"></div>
 
     <section>
-        <p class="handwritten reveal">The Journey to 50 Begins In...</p>
+        <p class="handwritten reveal">The Countdown Begins...</p>
         <div class="timer-display reveal">
             <div class="time-box"><span id="days" class="time-num">00</span><span class="time-label">Days</span></div>
             <div class="time-box"><span id="hours" class="time-num">00</span><span class="time-label">Hrs</span></div>
             <div class="time-box"><span id="mins" class="time-num">00</span><span class="time-label">Mins</span></div>
             <div class="time-box"><span id="secs" class="time-num">00</span><span class="time-label">Secs</span></div>
         </div>
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dad's+50th+Birthday+Jubilee&dates=20260326T053000Z/20260327T183000Z&details=Celebrating+50+years+of+Dad!&location=L-2/84,+Sector+H,+Aliganj,+Lucknow" target="_blank" class="btn-common btn-calendar reveal">📅 Save the Date to Google Calendar</a>
-        <p style="margin-top: 40px; font-size: 0.7rem; letter-spacing: 2px; color: #999;" class="reveal">TAP TO PLAY MUSIC & SCROLL</p>
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dad's+50th+Birthday+Jubilee&dates=20260326T053000Z/20260327T183000Z&details=Celebrating+50+years+of+Dad!&location=L-2/84,+Sector+H,+Aliganj,+Lucknow" target="_blank" class="btn-common btn-calendar reveal">📅 Save to Google Calendar</a>
+        <p style="margin-top: 30px; font-size: 0.65rem; letter-spacing: 2px; color: #999;" class="reveal">SCROLL TO BEGIN</p>
     </section>
 
     <section>
         <div class="photo-frame reveal"><img src="childhood.jpg" alt="Childhood"></div>
         <h1 class="reveal">1976</h1>
-        <p class="handwritten reveal">The Legend was born</p>
-        <p class="voiceover-text reveal">"It took 50 years to look this good! Here's where the journey started."</p>
+        <p class="handwritten reveal">A Legend was born</p>
+        <p class="voiceover-text reveal">"Before he was the man we know today, he was this little star."</p>
     </section>
 
     <section>
@@ -90,19 +101,19 @@
             <img src="photo2.jpg" alt="Current 3">
         </div>
         <h1 class="reveal">2026</h1>
-        <p class="handwritten reveal">Golden Jubilee</p>
+        <p class="handwritten reveal">The Golden Jubilee</p>
         <p class="voiceover-text reveal">"They say age is just a number... but to me, it's 50 years of my Dad being a superhero. To celebrate his survival (and his occasional back pain), I'm inviting you to his Golden Jubilee!"</p>
     </section>
 
     <section>
         <div class="ramayan-frame reveal"><img src="ramayan.jpg" alt="Blessings"></div>
         <h1 class="reveal">Seeking Blessings</h1>
-        <p class="voiceover-text reveal">"We start this milestone by seeking the divine blessings of Prabhu Ram for the years ahead."</p>
+        <p class="voiceover-text reveal">"Before we cut the cake, we want to seek Prabhu Ram's blessings for my Dad's next half-century."</p>
     </section>
 
     <section>
         <div class="schedule-board reveal">
-            <h1>The Celebration</h1>
+            <h1>Celebration Schedule</h1>
             <div class="day-title">26th March (Wednesday)</div>
             <div class="event"><span>11:00 AM</span> <span>Manas Poojan</span></div>
             <div class="event"><span>11:30 AM</span> <span>Path Begins</span></div>
@@ -110,26 +121,36 @@
             <div class="day-title">27th March (Thursday)</div>
             <div class="event"><span>07:00 PM</span> <span>Aarti & Prasad</span></div>
             <div class="event"><span>08:00 PM</span> <span>Swasti Vaachan & Cake Cutting</span></div>
-            <div class="event"><span>09:00 PM</span> <span>Dinner & Fun</span></div>
+            <div class="event"><span>09:00 PM</span> <span>Dinner Party</span></div>
 
-            <a href="https://maps.app.goo.gl/zM8UpM6u2cxzBDpp9" target="_blank" class="btn-common btn-map">📍 View Venue on Google Maps</a>
+            <a href="https://maps.app.goo.gl/98b40FRXmTkR9YMBy" target="_blank" class="btn-common btn-map">📍 Open in Google Maps</a>
         </div>
 
-        <div class="reveal" style="margin-top: 40px; width: 100%; max-width: 450px;">
-            <p style="font-weight: 600;">Confirm your presence:</p>
-            <input type="number" id="guestCount" class="guest-input" placeholder="Total Members (e.g. 2)">
-            <button onclick="sendRSVP()" class="btn-common whatsapp-btn">Confirm on WhatsApp</button>
+        <div class="reveal" style="margin-top: 40px; width: 100%;">
+            <p style="font-weight: 600; font-size: 0.9rem;">Confirm your presence:</p>
+            <input type="number" id="guestCount" class="guest-input" placeholder="How many members?">
+            <button onclick="sendRSVP()" class="btn-common whatsapp-btn">Confirm via WhatsApp</button>
         </div>
 
-        <div class="reveal" style="margin-top: 60px;">
-            <p style="letter-spacing: 3px; color: var(--gold); font-size: 0.7rem; font-weight: bold;">HOSTED BY</p>
-            <h2 style="font-family: 'Cinzel Decorative'; font-size: 1.1rem;">Neeraj, Neetu & Shivangi</h2>
+        <div class="reveal" style="margin-top: 40px;">
+            <p style="letter-spacing: 2px; color: var(--gold); font-size: 0.65rem; font-weight: bold;">HOSTED BY</p>
+            <h2 style="font-family: 'Cinzel Decorative'; font-size: 1rem;">Neeraj, Neetu & Shivangi</h2>
         </div>
     </section>
 
     <script>
-        function playAudio() { document.getElementById("inviteMusic").play(); }
+        const audio = document.getElementById("inviteMusic");
+        let hasPlayed = false;
 
+        // Start music as soon as the user scrolls
+        window.addEventListener('scroll', function() {
+            if (!hasPlayed) {
+                audio.play();
+                hasPlayed = true;
+            }
+        });
+
+        // Timer Logic
         const targetDate = new Date("March 26, 2026 11:00:00").getTime();
         function updateTimer() {
             const now = new Date().getTime();
@@ -156,10 +177,3 @@
     </script>
 </body>
 </html>
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
-</body>
-</html>
-
-
-
