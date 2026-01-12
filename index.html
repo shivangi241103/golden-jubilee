@@ -67,7 +67,7 @@
         .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body>
+<body onclick="playMusic()" ontouchstart="playMusic()">
 
     <audio id="inviteMusic" loop pre-load="auto">
         <source src="music.mp3" type="audio/mpeg">
@@ -142,13 +142,18 @@
         const audio = document.getElementById("inviteMusic");
         let hasPlayed = false;
 
-        // Start music as soon as the user scrolls
-        window.addEventListener('scroll', function() {
+        function playMusic() {
             if (!hasPlayed) {
-                audio.play();
-                hasPlayed = true;
+                audio.play().then(() => {
+                    hasPlayed = true;
+                }).catch(error => {
+                    console.log("Music play delayed for interaction");
+                });
             }
-        });
+        }
+
+        // Trigger music on the first scroll as well
+        window.addEventListener('scroll', playMusic, { once: true });
 
         // Timer Logic
         const targetDate = new Date("March 26, 2026 11:00:00").getTime();
@@ -177,3 +182,4 @@
     </script>
 </body>
 </html>
+
