@@ -6,157 +6,138 @@
     <title>My Dad's Golden Jubilee</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #D4AF37; --rich-black: #1a1a1a; --cream: #fffdf5; }
-        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--rich-black); color: var(--cream); scroll-behavior: smooth; overflow-x: hidden; }
-        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, #3d2b00 0%, #1a1a1a 100%); z-index: -1; }
-        section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; box-sizing: border-box; }
-        .photo-frame { width: 280px; height: 280px; border: 6px double var(--gold); border-radius: 50%; margin-bottom: 20px; overflow: hidden; box-shadow: 0 0 20px rgba(212,175,55,0.4); background: #222; }
-        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .ramayan-img { width: 100%; max-width: 450px; border-radius: 10px; border: 2px solid var(--gold); margin: 20px 0; }
-        h1 { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 2.2rem; margin: 10px 0; }
-        .handwritten { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--gold); }
-        .voiceover-text { font-style: italic; max-width: 600px; color: #ccc; line-height: 1.6; }
-        .schedule-board { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid var(--gold); padding: 30px; border-radius: 20px; max-width: 500px; width: 100%; }
-        .day-title { color: var(--gold); font-family: 'Cinzel Decorative', serif; margin-top: 20px; border-bottom: 1px solid var(--gold); display: inline-block; }
-        .event { display: flex; justify-content: space-between; margin: 10px 0; font-size: 0.9rem; }
-        .venue-card { margin-top: 30px; padding: 25px; border: 2px dashed var(--gold); border-radius: 15px; text-decoration: none; color: white; display: block; background: rgba(212, 175, 55, 0.1); }
-        .btn-map { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--gold); color: black; font-weight: bold; border-radius: 50px; text-decoration: none; }
-        .whatsapp-btn { display: inline-block; margin-top: 20px; padding: 12px 25px; background: #25D366; color: white; font-weight: bold; border-radius: 50px; text-decoration: none; transition: 0.3s; }
-        .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; }
-        .visible { animation: fadeInUp 1.2s forwards; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        /* --- ADD THIS FOR COUNTDOWN --- */
-        .timer-display { display: flex; gap: 10px; margin-top: 20px; }
-        .time-box { background: rgba(212, 175, 55, 0.2); padding: 10px; border-radius: 8px; min-width: 60px; border: 1px solid var(--gold); }
-        .time-num { display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold); }
-        .time-label { font-size: 0.6rem; text-transform: uppercase; }
-
-        /* --- ADD THIS FOR DROPDOWN --- */
-        .member-select { 
-            width: 100%; padding: 12px; margin: 15px 0; 
-            border-radius: 8px; border: 1px solid var(--gold); 
-            background: #222; color: white; font-family: 'Montserrat';
+        :root { 
+            --gold: #B8860B; 
+            --soft-bg: #fdfcf0; 
+            --text-dark: #4a4435; 
         }
+        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--soft-bg); color: var(--text-dark); scroll-behavior: smooth; overflow-x: hidden; }
+        
+        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, #ffffff 0%, #fdfcf0 100%); z-index: -1; }
+        
+        section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; box-sizing: border-box; }
+        
+        /* Countdown Styles */
+        .timer-display { display: flex; gap: 15px; margin: 20px 0; }
+        .time-box { background: white; padding: 15px; border-radius: 12px; min-width: 70px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .time-num { display: block; font-size: 1.8rem; font-weight: bold; color: var(--gold); }
+        .time-label { font-size: 0.7rem; text-transform: uppercase; color: #999; font-weight: 600; }
+
+        /* Collage Styles */
+        .collage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 360px; margin-bottom: 25px; }
+        .collage-grid img { width: 100%; height: 140px; object-fit: cover; border: 2px solid var(--gold); border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .collage-grid img:first-child { grid-column: span 2; height: 220px; }
+
+        .photo-frame { width: 260px; height: 260px; border: 4px solid var(--gold); border-radius: 50%; margin-bottom: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: white; }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        h1 { font-family: 'Cinzel Decorative', serif; color: var(--gold); font-size: 2rem; margin: 10px 0; }
+        .handwritten { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--gold); margin-bottom: 5px; }
+        .voiceover-text { font-style: italic; max-width: 500px; color: #666; line-height: 1.6; font-size: 1.05rem; }
+
+        /* Button & Input Styles */
+        .btn-common { display: inline-block; padding: 14px 28px; font-weight: bold; border-radius: 50px; text-decoration: none; transition: 0.3s; margin: 10px 5px; border: none; cursor: pointer; font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-calendar { background: white; color: #444; border: 1px solid #ccc; font-size: 0.75rem; }
+        .whatsapp-btn { background: #25D366; color: white; width: 85%; font-size: 1rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+        .guest-input { width: 85%; padding: 15px; margin: 20px 0 10px 0; border-radius: 12px; border: 1px solid #ddd; text-align: center; font-size: 1.1rem; background: white; }
+
+        /* Fade-in Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body>
+<body onclick="playAudio()">
+
+    <audio id="inviteMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="bg-glow"></div>
 
-    <section id="top">
-        <p class="handwritten">The Countdown Begins...</p>
-        <div class="timer-display">
+    <section>
+        <p class="handwritten reveal">The Celebration Begins In...</p>
+        <div class="timer-display reveal">
             <div class="time-box"><span id="days" class="time-num">00</span><span class="time-label">Days</span></div>
             <div class="time-box"><span id="hours" class="time-num">00</span><span class="time-label">Hrs</span></div>
             <div class="time-box"><span id="mins" class="time-num">00</span><span class="time-label">Mins</span></div>
             <div class="time-box"><span id="secs" class="time-num">00</span><span class="time-label">Secs</span></div>
         </div>
-        <p style="margin-top: 30px; font-size: 0.8rem; letter-spacing: 2px;">SCROLL TO ENTER</p>
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Dad's+50th+Birthday+Jubilee&dates=20260326T053000Z/20260327T183000Z&details=Celebrating+50+years+of+Dad!&location=L-2/84,+Sector+H,+Aliganj,+Lucknow" target="_blank" class="btn-common btn-calendar reveal">📅 Add to Google Calendar</a>
+        <p style="margin-top: 40px; font-size: 0.7rem; letter-spacing: 3px; color: #999;" class="reveal">TAP ANYWHERE TO PLAY MUSIC & SCROLL</p>
     </section>
-    
+
     <section>
-        <div class="photo-frame">
-            <img src="data:image/jpeg;base64,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" onerror="this.src='https://via.placeholder.com/300?text=Check+File+Name'" alt="Childhood Photo">
+        <div class="photo-frame reveal"><img src="childhood.jpg" alt="Childhood Photo"></div>
+        <h1 class="reveal">1976</h1>
+        <p class="handwritten reveal">A Legend was born.</p>
+        <p class="voiceover-text reveal">"Every great story has a beginning. This was his."</p>
+    </section>
+
+    <section>
+        <div class="collage-grid reveal">
+            <img src="current.jpg" alt="Current Photo 1">
+            <img src="photo2.jpg" alt="Current Photo 2">
+            <img src="photo3.jpg" alt="Current Photo 3">
         </div>
-        <h1>1976</h1>
-        <p class="handwritten">A Legend was born.</p>
-        <p class="voiceover-text">"It took my Dad 50 years to look this good! This is where his journey started."</p>
+        <h1 class="reveal">2026</h1>
+        <p class="handwritten reveal">Golden Jubilee</p>
+        <p class="voiceover-text reveal">"50 years of wisdom, love, and being the best Dad in the world."</p>
     </section>
 
     <section>
-        <div class="photo-frame">
-            <img src="current.jpg" onerror="this.src='https://via.placeholder.com/300?text=Current+Photo+Not+Found'" alt="Current Photo">
-        </div>
-        <h1>2026</h1>
-        <p class="handwritten">The Legend is 50.</p>
-        <p class="voiceover-text">"They say age is just a number... but to me, it's 50 years of my Dad being a superhero. To celebrate his survival (and his occasional back pain), I'm inviting you to his Golden Jubilee!"</p>
-    </section>
-
-    <section>
-        <img src="ramayan.jpg" class="ramayan-img" alt="Blessings">
-        <h1>Seeking Blessings</h1>
-        <p class="voiceover-text">"Before we cut the cake, we want to seek Lord Ram's blessings for my Dad's next half-century."</p>
-    </section>
-
-    <section>
-        <div class="schedule-board">
-            <h1>The Schedule</h1>
-            <div class="day-title">26th March (Wednesday)</div>
-            <div class="event"><span>11:00 AM</span> <span>RamCharit Manas Poojan</span></div>
-            <div class="event"><span>11:30 AM</span> <span>Anvarat Path Begins</span></div>
-            <div class="day-title">27th March (Thursday)</div>
-            <div class="event"><span>07:00 PM</span> <span>Aarti & Prasad Vitran</span></div>
-            <div class="event"><span>08:00 PM</span> <span>Official Cake Cutting</span></div>
-            <div class="event"><span>09:00 PM</span> <span>Dinner & Fun</span></div>
-        </div>
-    </section>
-
-    <section>
-        <p class="handwritten">Join us at</p>
-        <a href="https://maps.app.goo.gl/UfcpdMNZUMGfvbbZ8" target="_blank" class="venue-card">
-            <div style="font-size: 2rem;">📍</div>
-            <h2 style="color: var(--gold); margin:10px 0;">L-2/84, Sector H, Aliganj</h2>
-            <p>Lucknow, Uttar Pradesh - 226024</p>
-            <div class="btn-map">Open in Google Maps</div>
-        </a>
-        
-        <div style="width: 100%; max-width: 450px;">
-            <select id="guestCount" class="member-select">
-                <option value="1 Member">1 Member attending</option>
-                <option value="2 Members">2 Members attending</option>
-                <option value="3 Members">3 Members attending</option>
-                <option value="4 Members">4 Members attending</option>
-                <option value="5+ Members">5+ Members attending</option>
-            </select>
+        <div class="reveal" style="background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); width: 100%; max-width: 450px; border: 1px solid #eee;">
+            <h2 class="handwritten">RSVP</h2>
+            <p>How many members will be joining us?</p>
+            <input type="number" id="guestCount" class="guest-input" placeholder="Total Members (e.g. 3)" min="1">
+            <button onclick="sendRSVP()" class="btn-common whatsapp-btn">Confirm Presence</button>
             
-            <a href="javascript:void(0)" onclick="sendWhatsApp()" class="whatsapp-btn" style="width: 80%;">
-                Confirm Presence (WhatsApp)
-            </a>
+            <div style="margin-top: 30px; font-size: 0.9rem; color: #888;">
+                <p>📍 L-2/84, Sector H, Aliganj, Lucknow</p>
+            </div>
         </div>
-
-        <div style="margin-top: 40px;">
-            <p style="letter-spacing: 2px; color: var(--gold); font-size: 0.8rem;">HOSTED BY</p>
-            <h2 style="font-family: 'Cinzel Decorative'; font-size: 1.2rem;">Neeraj, Neetu and Shivangi</h2>
+        
+        <div class="reveal" style="margin-top: 50px;">
+            <p style="letter-spacing: 3px; color: var(--gold); font-size: 0.7rem; font-weight: bold;">HOSTED WITH LOVE BY</p>
+            <h2 style="font-family: 'Cinzel Decorative'; font-size: 1.2rem;">Neeraj, Neetu & Shivangi</h2>
         </div>
     </section>
 
     <script>
-        // --- TIMER LOGIC ---
-    const targetDate = new Date("March 26, 2026 11:00:00").getTime();
+        // MUSIC LOGIC
+        function playAudio() {
+            const audio = document.getElementById("inviteMusic");
+            audio.play().catch(error => console.log("Music play blocked until interaction."));
+        }
 
-    function updateTimer() {
-        const now = new Date().getTime();
-        const diff = targetDate - now;
+        // TIMER LOGIC
+        const targetDate = new Date("March 26, 2026 11:00:00").getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
 
-        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-    }
-    setInterval(updateTimer, 1000);
+        // RSVP LOGIC
+        function sendRSVP() {
+            const num = document.getElementById('guestCount').value || "1";
+            const msg = encodeURIComponent(`Hi Shivangi! We are so excited for the Golden Jubilee! We'll be attending with ${num} members.`);
+            window.open(`https://wa.me/919721456212?text=${msg}`, '_blank');
+        }
 
-    // --- WHATSAPP RSVP LOGIC ---
-    function sendWhatsApp() {
-        const guests = document.getElementById('guestCount').value;
-        const phone = "919721456212";
-        const message = encodeURIComponent(`Hi Shivangi! I'll be there for your Dad's 50th! We are ${guests} attending.`);
-        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-    }
-
-    // --- YOUR EXISTING SCROLL REVEAL LOGIC ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section > *').forEach(el => {
-        el.style.opacity = "0";
-        observer.observe(el);
-    });
+        // ANIMATION LOGIC
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
-
 </html>
-
-
-
